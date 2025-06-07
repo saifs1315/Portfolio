@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saif's AI Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle("hidden");
+      document.body.classList.toggle("overflow-hidden");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".close-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const id = btn.getAttribute("data-target");
+          toggleDetails(id);
+        });
+      });
+    });
+  </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Saif's Portfolio</h1>
+      <nav class="space-x-6">
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#career" class="hover:text-blue-600">Career</a>
+        <a href="#education" class="hover:text-blue-600">Education</a>
+        <a href="#skills" class="hover:text-blue-600">Skills</a>
+        <a href="#extracurricular" class="hover:text-blue-600">Extracurricular</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+        <a href="assets/Saif_Rahman_Syed_CV.pdf" download
+          class="text-blue-600 font-medium border border-blue-600 px-3 py-1 rounded hover:bg-blue-600 hover:text-white transition">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Landing Page -->
+  <section id="home"
+    class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-white to-gray-100 px-4">
+    <img src="assets/profile.png" alt="Saif" class="w-40 h-60 object-cover rounded-full mb-4 shadow-md" />
+    <h2 class="text-5xl font-bold mb-4">Hi, I'm Saif</h2>
+    <p class="text-xl max-w-2xl text-gray-700">
+      I'm a Software Engineer with a strong foundation in machine learning, cloud computing, and scalable data
+      systems. From building generative AI tools and real-time data pipelines to deploying intelligent automation for
+      enterprise clients, I specialise in crafting end-to-end AI solutions that drive innovation and impact.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-3xl font-semibold text-center mb-12">Projects</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Project 1 -->
+      <div class="relative group cursor-pointer aspect-square" onclick="toggleDetails('project1')">
+        <img src="assets/project1.jpg" alt="Project 1"
+          class="w-full h-full object-cover rounded-xl shadow-md group-hover:opacity-75 transition">
+        <div class="absolute bottom-4 left-4 text-black text-xl font-bold drop-shadow">Customer Churn Prediction</div>
+        <div id="project1" class="fixed inset-0 bg-white z-50 p-8 overflow-auto hidden">
+          <button
+            class="close-btn absolute top-4 right-4 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center text-xl"
+            data-target="project1">&times;</button>
+          <h4 class="text-3xl font-semibold mb-4">Customer Churn Prediction</h4>
+          <p class="mb-2 text-sm italic">Category: Machine Learning, Model Optimization</p>
+          <p class="mb-4">Built a deep learning model using PyTorch to predict customer churn from demographic and
+            service data.</p>
+          <p class="mb-4"><strong>Tools:</strong> PyTorch, Scikit-learn, Pandas, Matplotlib</p>
+          <a href="https://github.com/saifs1315/Data-Science-Portfolio/tree/main/Customer%20Churn%20Prediction"
+            target="_blank" class="text-blue-600 underline">View on GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="relative group cursor-pointer aspect-square" onclick="toggleDetails('project2')">
+        <img src="assets/project2.jpg" alt="Project 2"
+          class="w-full h-full object-cover rounded-xl shadow-md group-hover:opacity-75 transition">
+        <div class="absolute bottom-4 left-4 text-black text-xl font-bold drop-shadow">Crypto Sentiment Dashboard</div>
+        <div id="project2" class="fixed inset-0 bg-white z-50 p-8 overflow-auto hidden">
+          <button
+            class="close-btn absolute top-4 right-4 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center text-xl"
+            data-target="project2">&times;</button>
+          <h4 class="text-3xl font-semibold mb-4">Crypto Sentiment Dashboard</h4>
+          <p class="mb-2 text-sm italic">Category: Generative AI, Data Visualization</p>
+          <p class="mb-4">Developed a dashboard that uses sentiment scores to visualize and analyze crypto price trends.
+          </p>
+          <p class="mb-4"><strong>Tools:</strong> Python, VADER, Plotly, Streamlit</p>
+          <a href="https://github.com/saifs1315/Data-Science-Portfolio" target="_blank"
+            class="text-blue-600 underline">View on GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Skills & Capabilities</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-700">
+        <div>
+          <h4 class="font-semibold text-lg mb-2">AI & Machine Learning</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Supervised/Unsupervised Learning</li>
+            <li>Deep Learning (PyTorch, FastAI)</li>
+            <li>Scikit-learn, XGBoost, NLP</li>
+            <li>Generative AI (LangChain, Hugging Face, OpenAI API)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-lg mb-2">Data & Cloud Engineering</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Apache Spark, Kafka, SQL, NoSQL</li>
+            <li>AWS (Lambda, DynamoDB), Azure</li>
+            <li>PostgreSQL, MongoDB, MySQL</li>
+            <li>ETL Pipelines, Event-Driven Architectures</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-lg mb-2">DevOps, Testing & Tools</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>CI/CD with Jenkins, Azure DevOps, GitHub Actions</li>
+            <li>Docker, Git, Jira</li>
+            <li>Selenium, Rest Assured, JUnit</li>
+            <li>Power BI, Tableau, Plotly</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Section -->
+  <section id="career" class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Career</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-xl font-semibold">Data Science Consultant – Schneider Electric, UK (Apr 2025 – Present)</h4>
+          <p class="text-gray-700">Built a real-time streaming pipeline using Apache Spark to process IoT data.
+            Developed a generative AI tool with LLMs to detect energy inefficiencies and provide actionable
+            recommendations.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold">IT Consultant – LSHTM & Sangath (Remote) (Sep 2024 – Mar 2025)</h4>
+          <p class="text-gray-700">Architected a serverless event-driven messaging system using WhatsApp API and AWS
+            Lambda for healthcare communication. Ensured HIPAA-compliant data handling via AWS DynamoDB.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold">Consultant – Deloitte, Mumbai (Jan 2020 – Sep 2024)</h4>
+          <p class="text-gray-700">Led test automation and DevOps integration for financial platforms. Designed scalable
+            frameworks using Java, Selenium, and CI/CD pipelines in Azure. Managed a 10-member QA team in agile
+            environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="bg-gray-100 py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Education</h3>
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-xl font-semibold">MSc Management of Information Systems and Digital Innovation</h4>
+          <p class="text-gray-700">Warwick Business School, UK | Sep 2024 – Aug 2025</p>
+          <p class="text-sm text-gray-600">Modules: Artificial Intelligence, Data Analytics, Digital Business Strategy,
+            Cybersecurity</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold">BTech in Electronics and Instrumentation</h4>
+          <p class="text-gray-700">SRM Institute of Science and Technology, India | Jun 2015 – May 2019</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extracurricular Section -->
+  <section id="extracurricular" class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Extracurricular Activities</h3>
+      <ul class="list-disc list-inside space-y-3">
+        <li>Team Leader at Enactus Warwick – led a team of consultants to create sustainable business solutions for a
+          green energy nonprofit.</li>
+        <li>Organized AI and Data Science seminars as part of the university tech society.</li>
+        <li>Volunteered for tech literacy programs aimed at underserved communities.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-6">Get In Touch</h3>
+      <p class="mb-4">Feel free to connect with me for collaboration, consultation, or just a chat about data science!
+      </p>
+      <p>Email: <a class="text-blue-600 underline" href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>GitHub: <a class="text-blue-600 underline" href="https://github.com/saifs1315" target="_blank">saifs1315</a>
+      </p>
+      <p>LinkedIn: <a class="text-blue-600 underline" href="https://www.linkedin.com/in/saifrahmansyed/"
+          target="_blank">saifrahmansyed</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm text-gray-500 py-6">
+    &copy; 2025 Saif. All rights reserved.
+  </footer>
+</body>
+
+</html>
