@@ -7,9 +7,10 @@
   <title>Saif's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    /* Custom styles for the tag class */
     .tag {
       @apply bg-gray-200 text-gray-800 px-2 py-1 text-xs rounded;
     }
@@ -25,7 +26,7 @@
       /* Aligns content to the top */
     }
 
-    /* Custom styles for the horizontal timeline */
+    /* Custom styles for the horizontal timeline in the Journey section */
     .horizontal-timeline {
       display: flex;
       flex-direction: column;
@@ -65,7 +66,7 @@
       }
     }
 
-
+    /* Styles for individual timeline items */
     .timeline-item {
       position: relative;
       padding: 1.5rem;
@@ -107,7 +108,7 @@
       }
     }
 
-
+    /* Styles for the dots on the timeline */
     .timeline-dot {
       position: absolute;
       background-color: #333;
@@ -170,16 +171,26 @@
       }
     }
 
-    /* Styles for Education Timeline */
-    .education-timeline::before {
-      background-color: #333;
-      /* A distinct color, e.g., Bootstrap primary blue */
+    /* Styles for Education Cards (now card-based) */
+    .education-card {
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      min-height: 220px;
+      /* Ensure consistent height for cards */
     }
 
-    .education-timeline .timeline-dot {
-      background-color: #333;
-      /* Match the line color */
+    .education-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
+
 
     /* Styles for Extracurricular Cards */
     .extracurricular-card {
@@ -208,7 +219,7 @@
       margin-bottom: 1rem;
     }
 
-    /* New: styles for skill icons */
+    /* Styles for skill icons */
     .skill-icon {
       font-size: 2.5rem;
       /* Slightly smaller than extracurricular icons */
@@ -219,7 +230,7 @@
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Event listener for close buttons
+      // Event listener for close buttons for project details modals
       document.querySelectorAll(".close-btn").forEach(btn =>
         btn.addEventListener("click", e => {
           e.stopPropagation(); // Prevent click from bubbling up to the project card
@@ -228,7 +239,7 @@
         })
       );
 
-      // Event listener for project cards to open details
+      // Event listener for project cards to open details modals
       document.querySelectorAll(".project-card").forEach(card =>
         card.addEventListener("click", e => {
           // Only open if the click target is the card itself or its children, not the 'View details' button which already has its own handler
@@ -249,8 +260,24 @@
           toggleDetails(id);
         });
       });
+
+      // Toggle mobile menu visibility
+      document.getElementById("mobile-menu-button").addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+        document.body.classList.toggle("overflow-hidden"); // Prevent scrolling on body when menu is open
+      });
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll("#mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        });
+      });
     });
 
+    // Function to toggle visibility of project details modals
     function toggleDetails(id) {
       const el = document.getElementById(id);
       if (el) { // Check if element exists before toggling
@@ -259,6 +286,7 @@
       }
     }
 
+    // Function to filter projects based on category
     function filterProjects(category, evt) {
       const cards = document.querySelectorAll('.project-card');
       cards.forEach(card => {
@@ -280,7 +308,9 @@
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1><a href="#home" class="text-2xl font-bold">Saif's Portfolio</a></h1>
-      <nav class="space-x-6">
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6">
         <a href="#journey" class="hover:text-gray-600">Journey</a>
         <a href="#projects" class="hover:text-gray-600">Projects</a>
         <a href="#skills" class="hover:text-gray-600">Skills</a>
@@ -290,6 +320,32 @@
         <a href="#contact" class="hover:text-gray-600">Contact</a>
         <a href="assets/Saif_Rahman_Syed_CV.pdf" download
           class="text-gray-800 font-medium border border-gray-800 px-3 py-1 rounded hover:bg-gray-800 hover:text-white transition">Resume</a>
+      </nav>
+
+      <!-- Mobile Menu Button (Hamburger) -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Content -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white z-40 overflow-y-auto">
+      <div class="flex justify-end p-4">
+        <button class="text-gray-800 focus:outline-none"
+          onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.body.classList.remove('overflow-hidden');">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col items-center space-y-6 py-8">
+        <a href="#journey" class="text-2xl hover:text-gray-600">Journey</a>
+        <a href="#projects" class="text-2xl hover:text-gray-600">Projects</a>
+        <a href="#skills" class="text-2xl hover:text-gray-600">Skills</a>
+        <a href="#career" class="text-2xl hover:text-gray-600">Career</a>
+        <a href="#education" class="text-2xl hover:text-gray-600">Education</a>
+        <a href="#extracurricular" class="text-2xl hover:text-gray-600">Extracurricular</a>
+        <a href="#contact" class="text-2xl hover:text-gray-600">Contact</a>
+        <a href="assets/Saif_Rahman_Syed_CV.pdf" download
+          class="text-2xl text-gray-800 font-medium border border-gray-800 px-4 py-2 rounded hover:bg-gray-800 hover:text-white transition">Resume</a>
       </nav>
     </div>
   </header>
@@ -840,29 +896,24 @@
 
   <section id="education" class="bg-gray-100 py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-12">Education</h3>
-      <div class="horizontal-timeline education-timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <h4 class="font-semibold text-lg mb-1">BTech in Electronics and Instrumentation</h4>
-            <p class="text-sm text-gray-600 mb-2">SRM Institute of Science and Technology, India | Jun 2015 – May 2019
-            </p>
-            <p class="text-gray-700">Gained a strong foundation in electronic systems, control theory, and
-              instrumentation, developing analytical and problem-solving skills crucial for complex technical
-              challenges.
-            </p>
-          </div>
+      <h3 class="text-3xl font-semibold text-center mb-10">Education</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="education-card">
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">BTech in Electronics and Instrumentation</h4>
+          <p class="text-gray-700 mb-2">SRM Institute of Science and Technology, India</p>
+          <p class="text-sm text-gray-600 mb-3">Jun 2015 – May 2019</p>
+          <p class="text-gray-700">Gained a strong foundation in electronic systems, control theory, and
+            instrumentation, developing analytical and problem-solving skills crucial for complex technical challenges.
+          </p>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <h4 class="font-semibold text-lg mb-1">MSc Management of Information Systems and Digital Innovation</h4>
-            <p class="text-sm text-gray-600 mb-2">Warwick Business School, UK | Sep 2024 – Aug 2025</p>
-            <p class="text-gray-700">Focused on the strategic application of information systems and digital
-              technologies to drive business innovation, with a strong emphasis on AI and data analytics.</p>
-          </div>
+        <div class="education-card">
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">MSc Management of Information Systems and Digital
+            Innovation</h4>
+          <p class="text-gray-700 mb-2">Warwick Business School, UK</p>
+          <p class="text-sm text-gray-600 mb-3">Sep 2024 – Aug 2025</p>
+          <p class="text-gray-700">Focused on the strategic application of information systems and digital
+            technologies to drive business innovation, with a strong emphasis on AI and data analytics.</p>
         </div>
       </div>
     </div>
