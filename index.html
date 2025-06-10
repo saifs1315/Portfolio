@@ -169,6 +169,53 @@
         /* Space for the vertical line and dot */
       }
     }
+
+    /* Styles for Education Timeline */
+    .education-timeline::before {
+      background-color: #333;
+      /* A distinct color, e.g., Bootstrap primary blue */
+    }
+
+    .education-timeline .timeline-dot {
+      background-color: #333;
+      /* Match the line color */
+    }
+
+    /* Styles for Extracurricular Cards */
+    .extracurricular-card {
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      min-height: 220px;
+      /* Ensure consistent height for cards */
+    }
+
+    .extracurricular-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .extracurricular-card .icon {
+      font-size: 3rem;
+      color: #333;
+      /* Use the same distinct color */
+      margin-bottom: 1rem;
+    }
+
+    /* New: styles for skill icons */
+    .skill-icon {
+      font-size: 2.5rem;
+      /* Slightly smaller than extracurricular icons */
+      color: #333;
+      margin-bottom: 0.75rem;
+      /* Spacing below the icon */
+    }
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -236,11 +283,10 @@
       <nav class="space-x-6">
         <a href="#journey" class="hover:text-gray-600">Journey</a>
         <a href="#projects" class="hover:text-gray-600">Projects</a>
+        <a href="#skills" class="hover:text-gray-600">Skills</a>
         <a href="#career" class="hover:text-gray-600">Career</a>
         <a href="#education" class="hover:text-gray-600">Education</a>
-        <a href="#skills" class="hover:text-gray-600">Skills</a>
         <a href="#extracurricular" class="hover:text-gray-600">Extracurricular</a>
-        <a href="#digital-canvas" class="hover:text-gray-600">My Digital Canvas</a>
         <a href="#contact" class="hover:text-gray-600">Contact</a>
         <a href="assets/Saif_Rahman_Syed_CV.pdf" download
           class="text-gray-800 font-medium border border-gray-800 px-3 py-1 rounded hover:bg-gray-800 hover:text-white transition">Resume</a>
@@ -312,20 +358,20 @@
         class="filter-btn bg-gray-800 text-white px-4 py-1 rounded-full">All</button>
       <button onclick="filterProjects('ml', event)" class="filter-btn px-4 py-1 rounded-full border">ML</button>
       <button onclick="filterProjects('nlp', event)" class="filter-btn px-4 py-1 rounded-full border">NLP</button>
-      <button onclick="filterProjects('analytics', event)"
-        class="filter-btn px-4 py-1 rounded-full border">Analytics</button>
+      <button onclick="filterProjects('deep-learning', event)" class="filter-btn px-4 py-1 rounded-full border">Deep
+        Learning</button>
+      <button onclick="filterProjects('llm', event)" class="filter-btn px-4 py-1 rounded-full border">LLM</button>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectGrid">
-      <div data-category="ml analytics" data-details-target="project1-details"
+
+
+      <div data-category="llm nlp" data-details-target="project1-details"
         class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
-        <img src="assets/project1.png" alt="KS5 Student Outcomes" class="w-full h-48 object-contain mb-2 rounded">
-        <h4 class="font-semibold text-xl mb-1">KS5 Student Outcomes</h4>
-        <p class="text-sm text-gray-600 mb-2">Predictive model to support interventions among Key Stage 5 students.</p>
-        <div class="flex flex-wrap gap-2 mb-2">
-          <span class="tag">PyTorch</span>
-          <span class="tag">Scikit‑learn</span>
-          <span class="tag">Analytics</span>
-        </div>
+        <img src="assets/project1.png" alt="Resume-Job Description Matcher Bot"
+          class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">AI Resume-Job Description Matcher Bot</h4>
+        <p class="text-sm text-gray-600 mb-2">AI-powered tool for matching resumes to job descriptions with detailed
+          analysis.</p>
         <button data-target="project1-details" class="view-details-btn text-gray-800 text-sm underline">View details
           →</button>
       </div>
@@ -335,44 +381,62 @@
         <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
           <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
             data-target="project1-details">✖</button>
-          <h3 class="text-3xl font-bold mb-4">KS5 Student Outcomes</h3>
+          <h3 class="text-3xl font-bold mb-4">AI Resume-Job Description Matcher Bot</h3>
           <p class="text-gray-700 mb-4">
-            This project involved building a predictive model to identify Key Stage 5 students at risk of
-            underperforming, allowing for timely interventions.
-            We utilized a combination of <strong>PyTorch</strong> for deep learning aspects and
-            <strong>Scikit-learn</strong> for traditional
-            machine learning models.
-            Key features included student demographics, attendance records, prior attainment data, and engagement
-            metrics.
+            <strong>Tools Used:</strong> Streamlit, PyPDF, LangChain, HuggingFace Embeddings, FAISS, Google Generative
+            AI
+            (Gemini)
           </p>
-          <p class="text-gray-700 mb-4">
-            The methodology involved extensive <strong>exploratory data analysis (EDA)</strong> to understand student
-            performance
-            trends and identify influential factors.
-            Various models were experimented with, including logistic regression, random forests, and a simple neural
-            network.
-            Model performance was evaluated using metrics such as precision, recall, F1-score, and AUC, with a focus on
-            maximizing recall to ensure no at-risk student was missed.
+          <p>
+            <strong>Objective:</strong>
+            To create an interactive AI-powered application that helps job seekers analyze their resume's compatibility
+            with a job description, providing a match score, detailed analysis, and tailored suggestions for
+            improvement.
           </p>
-          <p class="text-gray-700">
-            The insights gained from this project were used to inform academic support programs and resource allocation,
-            ultimately aiming to improve overall student outcomes.
-            The system provides educators with an actionable dashboard to monitor student progress and flag those
-            requiring immediate attention.
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Developed a Streamlit web application for an intuitive user interface.</li>
+            <li>Implemented PDF text extraction capabilities using PyPDF to process uploaded resumes.</li>
+            <li>Utilized HuggingFace Embeddings (specifically "sentence-transformers/all-MiniLM-L6-v2") for converting
+              text into numerical vectors.</li>
+            <li>Integrated FAISS for efficient similarity search and retrieval of the most relevant resume sections
+              based
+              on the job description.</li>
+            <li>Leveraged Google Generative AI (Gemini 2.0 Flash) through LangChain to perform a comprehensive,
+              structured
+              match analysis.</li>
+            <li>Configured the LLM to output a JSON object containing an overall match score, compatibility summary,
+              strengths, areas for development, and tailoring suggestions.</li>
+            <li>Provided a clear, percentage-based match score and highlighted the most relevant resume sections with
+              their individual relevance scores.</li>
+          </ul>
           </p>
+          <div class="mt-6 text-center flex justify-center space-x-4">
+            <a href="https://github.com/saifs1315/Resume-job-matcher" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+            <a href="https://resume-job-matcher-dkpzji5whmsnkfg2psrrfs.streamlit.app/" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out">
+              <img src="https://www.streamlit.io/images/brand/streamlit-mark-color.svg" alt="Streamlit Logo"
+                class="h-6 w-6 mr-3">
+              View Streamlit Demo
+            </a>
+          </div>
         </div>
       </div>
 
-      <div data-category="nlp" data-details-target="project2-details"
+
+
+
+      <div data-category="ml" data-details-target="project2-details"
         class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
-        <img src="assets/project2.png" alt="Energy Forecasting" class="w-full h-48 object-contain mb-2 rounded">
-        <h4 class="font-semibold text-xl mb-1">Hourly Energy Forecasting</h4>
-        <p class="text-sm text-gray-600 mb-2">XGBoost and time‑series EDA to predict energy usage.</p>
-        <div class="flex flex-wrap gap-2 mb-2">
-          <span class="tag">XGBoost</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Analytics</span>
-        </div>
+        <img src="assets/project2.png" alt="KS5 Student Outcomes" class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">KS5 Student Outcomes</h4>
+        <p class="text-sm text-gray-600 mb-2">Predictive model to support interventions among Key Stage 5 students.</p>
         <button data-target="project2-details" class="view-details-btn text-gray-800 text-sm underline">View details
           →</button>
       </div>
@@ -382,31 +446,277 @@
         <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
           <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
             data-target="project2-details">✖</button>
-          <h3 class="text-3xl font-bold mb-4">Hourly Energy Forecasting</h3>
+          <h3 class="text-3xl font-bold mb-4">Empowering Futures: Predicting KS5 Student Outcomes</h3>
           <p class="text-gray-700 mb-4">
-            This project focused on developing a robust model for <strong>hourly energy consumption
-              forecasting</strong>, crucial for
-            optimizing energy management and reducing costs.
-            The primary tool used was <strong>XGBoost</strong>, a powerful gradient boosting framework, due to its
-            efficiency and
-            performance on structured data.
+            <strong>Tools Used:</strong> Pandas, Matplotlib, Seaborn, Scikit-learn, Xgboost
           </p>
+          <p>
+            <strong>Objective:</strong>
+            To predict lower outcome destinations (e.g., NEET - Not in Education, Employment, or Training) for students
+            completing Key Stage 5 qualifications in England, enabling targeted interventions and better policy
+            decisions for disadvantaged learners.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Analyzed a comprehensive dataset on post-study destinations of 16–18-year-old students across England.
+            </li>
+            <li>Focused on Level 3 students and developed a machine learning pipeline to identify risk patterns.</li>
+            <li>Compared outcomes between disadvantaged and non-disadvantaged student groups using features like FEEDER
+              status, school type, and local authority.</li>
+            <li>Conducted extensive data preprocessing, feature selection, and correlation analysis.</li>
+            <li>Trained and evaluated models (Random Forest, XGBoost, etc.) with an emphasis on recall to minimize false
+              negatives.</li>
+            <li>Achieved strong model performance for predicting low outcome destinations, supporting early intervention
+              efforts.
+            </li>
+          </ul>
+
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://github.com/saifs1315/Data-Science-Portfolio/blob/main/Evaluating%20KS5%20Student%20Outcomes/Evaluating%20Key%20Stage%205%20Student%20Outcomes.ipynb"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div data-category="ml" data-details-target="project3-details"
+        class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
+        <img src="assets/project3.png" alt="Energy Forecasting" class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">Hourly Energy Forecasting</h4>
+        <p class="text-sm text-gray-600 mb-2">XGBoost and time‑series EDA to predict energy usage.</p>
+        <button data-target="project3-details" class="view-details-btn text-gray-800 text-sm underline">View details
+          →</button>
+      </div>
+
+      <div id="project3-details"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+          <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
+            data-target="project3-details">✖</button>
+          <h3 class="text-3xl font-bold mb-4">Time Series Forecasting using XGBoost</h3>
           <p class="text-gray-700 mb-4">
-            The process began with extensive <strong>time-series exploratory data analysis (EDA)</strong> using
-            <strong>Pandas</strong>. This
-            involved identifying trends, seasonality, and
-            anomalies in historical energy usage data, along with incorporating external factors like temperature and
-            day of the week.
-            Feature engineering played a significant role, where lagged features, rolling means, and Fourier terms were
-            created to capture temporal dependencies.
+            <strong>Tools Used:</strong> Pandas, Numpy, Matplotlib, Seaborn, XGBoost, Scikit-learn
           </p>
-          <p class="text-gray-700">
-            The model was trained and validated using a time-series cross-validation approach to ensure its robustness
-            to future data.
-            Performance was measured using metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).
-            The resulting forecasts provide valuable insights for energy providers and consumers to make informed
-            decisions about energy production and consumption.
+          <p>
+            <strong>Objective:</strong>
+            To create a model for predicting hourly energy consumption using Exploratory Data Analysis (EDA) and
+            XGBoost, based on data available on Kaggle.
           </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Utilized hourly energy consumption data sourced from Kaggle.</li>
+            <li>Conducted comprehensive Exploratory Data Analysis (EDA).</li>
+            <li>Applied XGBoost, an ensemble machine learning algorithm, for robust time series prediction.</li>
+            <li>Developed a predictive model for energy consumption.</li>
+            <li>Achieved an RMSE score of 3715.93 on the test set, demonstrating strong model performance.
+            </li>
+          </ul>
+
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://github.com/saifs1315/Data-Science-Portfolio/blob/main/Hourly%20Energy%20Consumption/Time%20Series%20Forecasting%20using%20XGBoost.ipynb"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div data-category="nlp" data-details-target="project4-details"
+        class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
+        <img src="assets/project4.png" alt="Hate Speech Detection" class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">Hate Speech Detection</h4>
+        <p class="text-sm text-gray-600 mb-2">Machine learning model to identify hate speech in text.</p>
+        <button data-target="project4-details" class="view-details-btn text-gray-800 text-sm underline">View details
+          →</button>
+      </div>
+
+      <div id="project4-details"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+          <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
+            data-target="project4-details">✖</button>
+          <h3 class="text-3xl font-bold mb-4">Hate Speech Detection using Machine Learning</h3>
+          <p class="text-gray-700 mb-4">
+            <strong>Tools Used:</strong> Pandas, Numpy, Re, Seaborn, Matplotlib, NLTK, Scikit-learn, WordCloud
+          </p>
+          <p>
+            <strong>Objective:</strong>
+            To develop a machine learning model to automatically detect and classify hate speech in text data,
+            particularly from social media platforms like Twitter.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Utilized a dataset of labeled tweets for training and evaluation.</li>
+            <li>Performed extensive data preprocessing including lowercasing, punctuation removal, stop words removal,
+              and stemming/lemmatization.</li>
+            <li>Employed feature extraction methods such as TF-IDF and Count Vectorization to transform text into
+              numerical features.</li>
+            <li>Trained and evaluated various machine learning models including Logistic Regression, Naive Bayes, Random
+              Forest, and Support Vector Machine (SVM).</li>
+            <li>Analyzed class imbalance issues and their impact on model performance.</li>
+            <li>Achieved high accuracy in identifying hate speech, contributing to automated content moderation efforts.
+            </li>
+          </ul>
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://github.com/saifs1315/Data-Science-Portfolio/blob/main/Hate%20Speech%20Detection/Hate%20Speech%20Detection.ipynb"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div data-category="ml" data-details-target="project5-details"
+        class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
+        <img src="assets/project5.png" alt="Used Car Prediction" class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">Used Car Price Prediction</h4>
+        <p class="text-sm text-gray-600 mb-2">Data cleaning, feature engineering, and ML models for car price
+          prediction.</p>
+        <button data-target="project5-details" class="view-details-btn text-gray-800 text-sm underline">View details
+          →</button>
+      </div>
+
+      <div id="project5-details"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+          <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
+            data-target="project5-details">✖</button>
+          <h3 class="text-3xl font-bold mb-4">Used Car Price Prediction</h3>
+          <p class="text-gray-700 mb-4">
+            <strong>Tools Used:</strong> Pandas, Numpy, Seaborn, Matplotlib, Plotly, Scikit-learn, Jupyterthemes
+          </p>
+          <p>
+            <strong>Objective:</strong>
+            To perform data cleaning and feature engineering on a dataset for Used Car prices and exploring predictions
+            from different Machine Learning models to use a model that best fits the purpose of predicting used car
+            prices.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Performed comprehensive data cleaning and feature engineering on a used car dataset.</li>
+            <li>Explored and compared predictions from various machine learning models.</li>
+            <li>Identified the best-fitting model for accurate used car price prediction.</li>
+          </ul>
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://github.com/saifs1315/Data-Science-Portfolio/blob/main/Used%20Car%20Prediction/Used%20Car%20Prediction.ipynb"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <div data-category="deep-learning" data-details-target="project6-details"
+        class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
+        <img src="assets/project6.png" alt="AI vs Human Image Detection"
+          class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">AI vs Human-Generated Image Detection</h4>
+        <p class="text-sm text-gray-600 mb-2">Machine learning models to accurately classify images as AI-generated or
+          human-created.</p>
+        <button data-target="project6-details" class="view-details-btn text-gray-800 text-sm underline">View details
+          →</button>
+      </div>
+
+      <div id="project6-details"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+          <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
+            data-target="project6-details">✖</button>
+          <h3 class="text-3xl font-bold mb-4">AI vs Human-Generated Image Detection</h3>
+          <p class="text-gray-700 mb-4">
+            <strong>Tools Used:</strong> numpy, pandas, fastkaggle, fastai.vision
+          </p>
+          <p>
+            <strong>Objective:</strong>
+            To design deep learning models that can accurately classify images as AI-generated or human-created,
+            ensuring fairness and robust performance across a diverse dataset.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Utilized a dataset provided by Shutterstock and DeepMedia, combining authentic and AI-generated images.
+            </li>
+            <li>Focused on building robust image authenticity detection systems.</li>
+            <li>Primary evaluation metric is the F1-Score.</li>
+            <li>Submitted notebooks are clear, well-documented, and easily replicable.</li>
+          </ul>
+
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://www.kaggle.com/code/saifs1315/detection-competition" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+              View on Kaggle
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div data-category="nlp" data-details-target="project7-details"
+        class="project-card bg-white p-4 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 cursor-pointer">
+        <img src="assets/project7.png" alt="Sentiment Analysis" class="w-full h-48 object-contain mb-2 rounded">
+        <h4 class="font-semibold text-xl mb-1">Sentiment Analysis on Amazon Food Reviews</h4>
+        <p class="text-sm text-gray-600 mb-2">Sentiment analysis on Amazon food reviews comparing NLTK's VADER and
+          Transformers models.</p>
+        <button data-target="project7-details" class="view-details-btn text-gray-800 text-sm underline">View details
+          →</button>
+      </div>
+
+      <div id="project7-details"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2 relative max-h-[90vh] overflow-y-auto">
+          <button class="absolute top-2 right-2 text-gray-700 text-2xl close-btn"
+            data-target="project7-details">✖</button>
+          <h3 class="text-3xl font-bold mb-4">Sentiment Analysis on Amazon Food Reviews using NLTK and Transformers</h3>
+          <p class="text-gray-700 mb-4">
+            <strong>Tools Used:</strong> Pandas, Numpy, Matplotlib, Seaborn, NLTK, Transformers, PyTorch, Scikit-learn
+          </p>
+          <p>
+            <strong>Objective:</strong>
+            To perform Sentiment analysis on a dataset consisting of food reviews from Amazon. The project compares
+            NLTK's
+            VADER model and Hugging Face Transformers to analyze review sentiments.
+          </p>
+          <p>
+            <strong>Highlights:</strong>
+          <ul style="list-style-type: '- ';">
+            <li>Utilized a dataset of food reviews from Kaggle.</li>
+            <li>Performed sentiment analysis using NLTK's VADER model and Hugging Face Transformers.</li>
+            <li>Compared the results from both approaches.</li>
+            <li>The dataset has close to half a million entries.</li>
+            <li>Downsized the number of rows to 500 for initial stages to test models.</li>
+            <li>Achieved an accuracy of 0.817 for the VADER model.</li>
+            <li>Achieved an accuracy of 0.90 for the Transformer model.</li>
+          </ul>
+
+          </p>
+          <div class="mt-6 text-center">
+            <a href="https://github.com/saifs1315/Data-Science-Portfolio/blob/main/Amazon%20Food%20Reviews/Sentiment%20Analysis%20on%20Amazon%20Food%20Reviews.ipynb"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub Logo" class="h-6 w-6 mr-3">
+              View on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -416,38 +726,57 @@
     <h3 class="text-3xl font-semibold mb-6 text-center">Skills & Capabilities</h3>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm text-center">
-
-
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-code skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">Languages</h4>
-        <p>Python, SQL, JavaScript, HTML/CSS</p>
+        <p>Python</p>
+        <p>SQL</p>
+        <p>JavaScript</p>
+        <p>HTML/CSS</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-brain skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">Libraries</h4>
-        <p>pandas, NumPy, scikit-learn, matplotlib, seaborn</p>
+        <p>Pandas</p>
+        <p>NumPy</p>
+        <p>Scikit-learn</p>
+        <p>PyTorch</p>
+        <p>LangChain</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-robot skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">ML & AI</h4>
-        <p>FastAI, PyTorch, XGBoost, LLMs</p>
+        <p>Model Development</p>
+        <p>Model Validation & Finetuning</p>
+        <p>RAG</p>
+        <p>Transfer Learning</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-tools skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">Tools</h4>
-        <p>Jupyter, Git, VSCode, Tableau</p>
+        <p>Jupyter</p>
+        <p>Git</p>
+        <p>VSCode</p>
+        <p>Tableau</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-cloud skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">Cloud & DevOps</h4>
-        <p>AWS, Azure, GitHub Actions</p>
+        <p>AWS</p>
+        <p>Azure</p>
+        <p>GitHub Actions</p>
       </div>
-      <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition skill-box">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition skill-box flex flex-col items-center">
+        <i class="fas fa-certificate skill-icon"></i>
         <h4 class="font-semibold text-lg mb-2 text-gray-700">Certifications</h4>
-        <p>
-          <a href="https://www.credly.com/badges/1f88a4c5-164b-4deb-9f71-74e087c4e320/linked_in_profile" target="_blank"
-            class="text-gray-700 hover:underline">Microsoft Certified: Azure AI Fundamentals</a>, <br>
-          <a href="https://www.credly.com/badges/047bc938-506c-4f5c-a656-099a58a66b0c/linked_in_profile" target="_blank"
-            class="text-gray-700 hover:underline">Google Data Analytics Professional Certificate</a>, <br>
-          <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Australia/MD2p8dDih7zoQ9KRC_Accenture%20Australia_HA5NPnH2tiPDbeTnu_1728918318417_completion_certificate.pdf"
-            target="_blank" class="text-gray-700 hover:underline">Strategy Consulting Job Simulation</a>
+        <p><a href="https://www.credly.com/badges/1f88a4c5-164b-4deb-9f71-74e087c4e320/linked_in_profile"
+            target="_blank" class="text-gray-700 hover:underline">Microsoft Certified: Azure AI Fundamentals</a></p>
+        <p><a href="https://www.credly.com/badges/047bc938-506c-4f5c-a656-099a58a66b0c/linked_in_profile"
+            target="_blank" class="text-gray-700 hover:underline">Google Data Analytics Professional Certificate</a>
         </p>
+        <p><a
+            href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Australia/MD2p8dDih7zoQ9KRC_Accenture%20Australia_HA5NPnH2tiPDbeTnu_1728918318417_completion_certificate.pdf"
+            target="_blank" class="text-gray-700 hover:underline">Strategy Consulting Job Simulation</a></p>
       </div>
     </div>
   </section>
@@ -460,25 +789,27 @@
           <h4 class="text-xl font-semibold text-gray-700 mb-2">Data Science Consultant – Schneider Electric, UK (Apr
             2025 – Present)</h4>
           <p class="text-gray-700 mb-3">
-            At Schneider Electric, I focus on crafting end-to-end AI solutions that drive innovation and impact for
-            enterprise clients. I've built real-time streaming pipelines and developed generative AI tools to detect
-            energy inefficiencies.
+            At Schneider Electric, I am focusing on crafting end-to-end AI solutions that optimize energy usage and
+            drive decarbonization in smart buildings. I am currently building real-time streaming pipelines and
+            developing generative
+            AI tools to identify and address energy inefficiencies.
           </p>
           <p class="text-sm text-gray-600 mb-1">
-            <strong>Tools & Technologies:</strong> Apache Spark, Python, LLMs, AWS, Azure
+            <strong>Tools & Technologies:</strong> Apache Spark, Python, LLMs, Azure
           </p>
           <p class="text-sm text-gray-600">
-            <strong>Key Skills:</strong> Real-time Data Processing, Generative AI Development, Cloud Solutions
+            <strong>Key Skills:</strong> Real-time Data Processing, Generative AI , Cloud Solutions
             Architecture, Energy Efficiency Analysis
           </p>
         </div>
 
         <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700 mb-2">IT Consultant – LSHTM & Sangath (Remote) (Sep 2024 – Mar
+          <h4 class="text-xl font-semibold text-gray-700 mb-2">IT Consultant – London School of Hygiene and Tropical
+            Medicine & Sangath (Remote) (Sep 2024 – Mar
             2025)</h4>
           <p class="text-gray-700 mb-3">
-            As an IT Consultant, I designed and implemented secure, scalable communication systems for healthcare
-            initiatives, with a strong emphasis on data privacy.
+            As an IT Consultant, I designed and implemented secure, scalable communication systems as a digital
+            intervention for a research study on substance abuse, with a strong emphasis on data privacy.
           </p>
           <p class="text-sm text-gray-600 mb-1">
             <strong>Tools & Technologies:</strong> WhatsApp API, AWS Lambda, AWS DynamoDB, AWS SQS/SNS
@@ -508,99 +839,81 @@
   </section>
 
   <section id="education" class="bg-gray-100 py-16">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-10">Education</h3>
-      <div class="space-y-8">
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700">MSc Management of Information Systems and Digital Innovation
-          </h4>
-          <p class="text-gray-700 mb-2">Warwick Business School, UK | Sep 2024 – Aug 2025</p>
-          <p class="text-gray-700 mb-3">Focused on the strategic application of information systems and digital
-            technologies to drive business innovation, with a strong emphasis on AI and data analytics.</p>
-          <p class="text-sm text-gray-600"><strong>Modules:</strong> Artificial Intelligence, Data Analytics, Digital
-            Business Strategy, Cybersecurity, Global Digital Economy</p>
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-12">Education</h3>
+      <div class="horizontal-timeline education-timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <h4 class="font-semibold text-lg mb-1">BTech in Electronics and Instrumentation</h4>
+            <p class="text-sm text-gray-600 mb-2">SRM Institute of Science and Technology, India | Jun 2015 – May 2019
+            </p>
+            <p class="text-gray-700">Gained a strong foundation in electronic systems, control theory, and
+              instrumentation, developing analytical and problem-solving skills crucial for complex technical
+              challenges.
+            </p>
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700">BTech in Electronics and Instrumentation</h4>
-          <p class="text-gray-700 mb-2">SRM Institute of Science and Technology, India | Jun 2015 – May 2019</p>
-          <p class="text-gray-700">Gained a strong foundation in electronic systems, control theory, and
-            instrumentation, developing analytical and problem-solving skills crucial for complex technical challenges.
-          </p>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div>
+            <h4 class="font-semibold text-lg mb-1">MSc Management of Information Systems and Digital Innovation</h4>
+            <p class="text-sm text-gray-600 mb-2">Warwick Business School, UK | Sep 2024 – Aug 2025</p>
+            <p class="text-gray-700">Focused on the strategic application of information systems and digital
+              technologies to drive business innovation, with a strong emphasis on AI and data analytics.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="extracurricular" class="bg-white py-16">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-10">Extracurricular Activities</h3>
-      <div class="space-y-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700 mb-2">Team Leader – Enactus Warwick</h4>
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-semibold text-center mb-10">Extracurricular Activities & Engagements</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="extracurricular-card">
+          <i class="fas fa-lightbulb icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Co-inventor - Retractable Roof Control System</h4>
+          <p class="text-gray-700">Awarded an Indian Patent Grant for development of a system to
+            automatically extend or retract a roof based on environmental parameters, showcasing innovative engineering
+            design and problem-solving.</p>
+        </div>
+        <div class="extracurricular-card">
+          <i class="fas fa-users-gear icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Team Leader – Enactus Warwick</h4>
           <p class="text-gray-700">Led a dynamic team of student consultants to develop sustainable business solutions
             for a local green energy nonprofit. This involved project management, client engagement, and impact
             assessment to drive social and environmental change.</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700 mb-2">Runner Up – Warwick Consulting Society Case Competition
+        <div class="extracurricular-card">
+          <i class="fas fa-trophy icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Runner Up – Warwick Consulting Society Case Competition
           </h4>
-          <p class="text-gray-700">Organized and promoted a series of successful seminars and workshops focused on
-            Artificial Intelligence and Data Science. Responsibilities included inviting guest speakers, managing
-            logistics, and fostering a community of learners interested in emerging technologies.</p>
+          <p class="text-gray-700">Secured second place in the Warwick Consulting Society's annual case competition,
+            demonstrating strong analytical, problem-solving, and presentation skills in developing strategic
+            recommendations for a real-world business challenge.</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700 mb-2">Co-inventor - A Control system for controlling operation
-            of a retractable roof</h4>
-          <p class="text-gray-700">Co-inventor of "A Control system for controlling operation of a retractable roof",
-            demonstrating innovation and problem-solving skills in engineering design.</p>
+        <div class="extracurricular-card">
+          <i class="fas fa-leaf icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">PR Team Member – SRM Environment Club</h4>
+          <p class="text-gray-700">Served on the Public Relations team for the SRM Environment Club, responsible for
+            raising awareness about environmental issues and promoting club initiatives through various communication
+            channels and community outreach programs.</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-          <h4 class="text-xl font-semibold text-gray-700 mb-2">PR Team Member – SRM Environment Club</h4>
-          <p class="text-gray-700">Volunteered in programs aimed at improving tech literacy for underserved communities.
-            This involved teaching basic computer skills, internet safety, and digital tools, helping bridge the digital
-            divide and empower individuals.</p>
+        <div class="extracurricular-card">
+          <i class="fas fa-hands-helping icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Impact Day Coordinator – Deloitte</h4>
+          <p class="text-gray-700">Coordinated Deloitte's annual CSR 'Impact Day' initiatives, organizing and leading
+            volunteer activities focused on community development and social responsibility, enhancing Deloitte's
+            commitment to making a positive impact.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="digital-canvas" class="bg-gray-100 py-16">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-3xl font-semibold text-center mb-10">My Digital Canvas</h3>
-      <p class="text-center text-lg text-gray-700 mb-8">
-        Beyond my professional pursuits, here's a glimpse into my personal interests and what I'm currently engaging
-        with on various platforms.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition cursor-pointer">
-          <a href="https://www.goodreads.com/user/show/112575572-saif-syed" target="_blank" class="block">
-            <i class="fab fa-goodreads-g text-gray-700 text-5xl mb-3"></i>
-            <h4 class="font-semibold text-xl mb-2">My Literary Journey</h4>
-            <p class="text-gray-700 text-sm">
-              Tracking my reads, reviews, and literary discoveries. See what books are currently on my shelf!
-            </p>
-          </a>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition cursor-pointer">
-          <a href="https://open.spotify.com/user/saifs1315" target="_blank" class="block">
-            <i class="fab fa-spotify text-gray-700 text-5xl mb-3"></i>
-            <h4 class="font-semibold text-xl mb-2">My Current Soundtrack</h4>
-            <p class="text-gray-700 text-sm">
-              Discovering new music and curating playlists. Explore the sounds that fuel my focus and creativity.
-            </p>
-            </p>
-          </a>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition cursor-pointer">
-          <a href="https://letterboxd.com/sxsy1315/films/" target="_blank" class="block">
-            <i class="fas fa-film text-gray-700 text-5xl mb-3"></i>
-            <h4 class="font-semibold text-xl mb-2">My Film Diary</h4>
-            <p class="text-gray-700 text-sm">
-              Logging films I've watched, reviewing my favorites, and exploring cinema.
-            </p>
-          </a>
+        <div class="extracurricular-card">
+          <i class="fas fa-futbol icon"></i>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2">Pitch Manager – Just For Kicks</h4>
+          <p class="text-gray-700">Managed and executed football-based leadership workshops for children from
+            underprivileged backgrounds, fostering teamwork, discipline, and confidence through sports and community
+            engagement.</p>
         </div>
       </div>
     </div>
